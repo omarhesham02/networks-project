@@ -6,6 +6,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -16,6 +17,6 @@ app.get('/', function(req, res) {
 });
 
 
-app.listen(3000);
+app.listen(3000, () => console.log('Server Online. Listening on port 3000...'));
 
 
