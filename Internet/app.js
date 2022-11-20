@@ -11,6 +11,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Connect MongoDB Database
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/express', {useNewUrlParser: true, useUnifiedTopology: true});
+
+
+// Create MongoDB Database Schema
+var Schema = mongoose.Schema;
+var UserDetail = new Schema({
+    username: String,
+    useremail: String,
+    userpassword: String
+});
+
 
 app.get('/', function(req, res) {
   res.render('login')
