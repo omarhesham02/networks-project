@@ -1,7 +1,7 @@
 // Require dotenv
 require('dotenv').config();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 const DB_URI = process.env.DB_URI;
 
 var express = require('express');
@@ -9,7 +9,7 @@ var path = require('path');
 var app = express();
 var mongoose = require('mongoose');
 
-// view engine setup
+// View Engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -22,7 +22,7 @@ mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // Check if connection is successful
 mongoose.connection.on('connected', () => {
-    console.log('Connected to MongoDB');
+    console.log(`Connected to MongoDB at ${DB_URI}`);
 }); 
 
 
@@ -30,5 +30,10 @@ app.get('/', function(req, res) {
   res.render('login')
 });
 
-app.listen(PORT || 2000, () => console.log(`Server Online. Listening on port ${PORT}`));
+app.post('/', function(req, res) {
+  console.log(req.body);
+  res.render('home')
+});
+
+app.listen(PORT || 3000, () => console.log(`Server Online. Listening on port ${PORT}`));
 
