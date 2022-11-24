@@ -20,6 +20,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Connect to MongoDB using mongoose
 mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 
+// Check if connection is successful
+mongoose.connection.on('connected', () => {
+    console.log('Connected to MongoDB');
+}); 
+
 
 app.get('/', function(req, res) {
   res.render('login')
