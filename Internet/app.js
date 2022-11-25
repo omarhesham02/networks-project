@@ -2,7 +2,7 @@
 require('dotenv').config();
 
 const PORT = process.env.PORT || 3000;
-const DB_URI = process.env.DB_URI || 'mongodb://0.0.0.0:27017';
+const DB_URI = process.env.DB_URI;
 
 const express = require('express');
 const path = require('path');
@@ -23,15 +23,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Connect to MongoDB using mongoose
 mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-const db = mongoose.connection;
-
-// Check if connection is successful
-db.on('connected', () => {
-    console.log(`Connected to MongoDB at ${DB_URI}`);
-}); 
-
-// Bind connection to error event (to get notification of connection errors)
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+    .then(() => {
+        console.log(`Connected to MongoDB at ${DB_URI}`);
+    })
+    .catch((err) => {
+        console.log('Error connecting to MongoDB: ' + err);
+    });
 
 
 // Router bindings
