@@ -1,8 +1,8 @@
 // Require dotenv
 require('dotenv').config();
 
-const PORT = process.env.PORT;
-const DB_URI = process.env.DB_URI;
+const PORT = process.env.PORT || 3000;
+const DB_URI = process.env.DB_URI || 'mongodb://0.0.0.0:27017';
 
 const express = require('express');
 const path = require('path');
@@ -19,6 +19,7 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 // Connect to MongoDB using mongoose
 mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
