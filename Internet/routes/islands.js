@@ -1,11 +1,11 @@
-const islandsCtrl = require('../controllers/islandsCtrl');
+const islandsController = require('../controllers/islandsController');
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
     res.render('islands');
 });
 
-router.post('/', islandsCtrl.islands);
+router.post('/', islandsController.islands);
 
 
 
