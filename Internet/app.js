@@ -9,6 +9,13 @@ const path = require('path');
 const app = express();
 const mongoose = require('mongoose');
 
+<<<<<<< Updated upstream
+=======
+// Routers
+const loginRouter = require('./routes/login');
+const hikingRouter = require('./routes/hiking'); 
+
+>>>>>>> Stashed changes
 // View Engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -51,6 +58,7 @@ const islandsRouter = require('./routes/islands');
 
 // Router bindings
 app.use('/', loginRouter);
+<<<<<<< Updated upstream
 app.use('/cities', citiesRouter);
 app.use('/islands', islandsRouter);
 //TODO-----
@@ -66,6 +74,9 @@ app.use('/islands', islandsRouter);
 // app.use('/wanttogo', wanttogoRouter);
 //---------
 
+=======
+app.use('/', hikingRouter);
+>>>>>>> Stashed changes
 
 
 
