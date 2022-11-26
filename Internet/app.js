@@ -5,9 +5,9 @@ const PORT = process.env.PORT || 3000;
 const DB_URI = process.env.DB_URI;
 
 const express = require('express');
+const { MongoClient } = require('mongodb');
 const path = require('path');
 const app = express();
-const mongoose = require('mongoose');
 
 // Routers
 const loginRouter = require('./routes/login');
@@ -21,19 +21,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-// Connect to MongoDB using mongoose
-mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+// Connect to MongoDB
+MongoClient.connect(DB_URI, { useUnifiedTopology: true })
     .then(() => {
         console.log(`Connected to MongoDB at ${DB_URI}`);
     })
-    .catch((err) => {
-        console.log('Error connecting to MongoDB: ' + err);
-    });
-
+    .catch(err => {
+        console.log(err);
 
 // Router bindings
 app.use('/', loginRouter);
-
 
 
 
