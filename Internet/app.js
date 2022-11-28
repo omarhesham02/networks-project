@@ -40,12 +40,12 @@ const parisRouter = require('./routes/paris');
 const searchresultsRouter = require('./routes/searchresults');
 const wanttogoRouter = require('./routes/wanttogo');
 const annapurnaRouter = require('./routes/annapurna');
+const baliRouter = require('./routes/bali');
+const romeRouter = require('./routes/rome');
+const santoriniRouter = require('./routes/santorini');
 //TODO-----
-// const baliRouter = require('./routes/bali');
 // const homeRouter = require('./routes/home');
 // const registrationRouter = require('./routes/registration');
-// const romeRouter = require('./routes/rome');
-// const santoriniRouter = require('./routes/santorini');
 
 //---------
 
@@ -61,12 +61,12 @@ app.use('/paris', parisRouter);
 app.use('/annapurna', annapurnaRouter);
 app.use('/searchresults', searchresultsRouter);
 app.use('/wanttogo', wanttogoRouter);
+app.use('/bali', baliRouter);
+app.use('/rome', romeRouter);
+app.use('/santorini', santoriniRouter);
 //TODO-----
-// app.use('/bali', baliRouter);
 // app.use('/home', homeRouter);
 // app.use('/registration', registrationRouter);
-// app.use('/rome', romeRouter);
-// app.use('/santorini', santoriniRouter);
 //---------
 
 
