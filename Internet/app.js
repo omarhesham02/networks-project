@@ -66,8 +66,14 @@ MongoClient.connect(DB_URI, { useUnifiedTopology: true })
         console.log(`Connected to MongoDB at ${DB_URI}`);
     })
     .catch(err => {
+
         console.log(err);
     });
+        
+
+// Router bindings
+app.use('/', loginRouter);
+
 
 
 
