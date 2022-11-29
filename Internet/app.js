@@ -66,10 +66,16 @@ MongoClient.connect(DB_URI, { useUnifiedTopology: true })
         console.log(`Connected to MongoDB at ${DB_URI}`);
     })
     .catch(err => {
+
         console.log(err);
     });
+        
+
+// Router bindings
+app.use('/', loginRouter);
 
 
 
-app.listen(PORT || 3000, () => console.log(`Server Online. Listening on port ${PORT}...`));
+
+app.listen(PORT || 3000, () => console.log(`Server Online. Listening on port ${PORT} ...`));
 
