@@ -49,7 +49,7 @@ app.use('/hiking', hikingRouter);
 app.use('/inca', incaRouter);
 app.use('/paris', parisRouter);
 app.use('/annapurna', annapurnaRouter);
-app.use('/searchresults', searchresultsRouter);
+app.use('/search', searchresultsRouter);
 app.use('/wanttogo', wanttogoRouter);
 app.use('/bali', baliRouter);
 app.use('/rome', romeRouter);
