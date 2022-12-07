@@ -8,21 +8,21 @@ async function registration(req, res, next) {
     //results = await results.toArray();
     //results.unshift({name: req.body.username});
     //if(results.length === 0){
+    if (req.body.username == "") {
+        console.log('You must enter a username!');
+    }
+    else if (req.body.password == "") {
+        console.log('You must enter a password!');
+    } else {
         MongoClient.connect(process.env.DB_URI, { useUnifiedTopology: true })
-    .then(() => {
-        // console.log(`Connected to MongoDB at ${DB_URI}`);
-        // app.use('Users');
-        // const client = new MongoClient (DB_URI, { useUnifiedTopology: true });
-        // var db= client.db('Users-DB');
-        db.collection('Users').insertOne({username: req.body.username, password: req.body.password}); 
-    })
-    .catch(err => {
-
-        console.log(err);
-    });
-   // }
-    res.render('registration');
-    
+        .then(() => {
+            db.collection('Users').insertOne({username: req.body.username, password: req.body.password}); 
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
+    res.render('registration'); 
 }
 
 module.exports = { registration };
