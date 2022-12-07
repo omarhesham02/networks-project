@@ -8,6 +8,7 @@ const express = require('express');
 const { MongoClient } = require('mongodb');
 const path = require('path');
 const app = express();
+module.exports = {MongoClient};
 
 // View Engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -48,13 +49,12 @@ app.use('/hiking', hikingRouter);
 app.use('/inca', incaRouter);
 app.use('/paris', parisRouter);
 app.use('/annapurna', annapurnaRouter);
-app.use('/searchresults', searchresultsRouter);
+app.use('/search', searchresultsRouter);
 app.use('/wanttogo', wanttogoRouter);
 app.use('/bali', baliRouter);
 app.use('/rome', romeRouter);
 app.use('/santorini', santoriniRouter);
 //TODO-----
-// app.use('/home', homeRouter);
 // app.use('/registration', registrationRouter);
 //---------
 
@@ -76,6 +76,13 @@ app.use('/', loginRouter);
 
 
 
+//const db = new MongoClient(DB_URI).db("Users-DB");
+
+//var cursor =db.collection('Users').find({username : 'Omar'});
+
+//to log data from cursor
+//cursor.stream().on("data", doc => console.log(doc));
+//console.log('HELLO',data);
 
 app.listen(PORT || 3000, () => console.log(`Server Online. Listening on port ${PORT} ...`));
 
