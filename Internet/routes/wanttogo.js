@@ -1,5 +1,3 @@
-// Require dotenv
-require('dotenv').config();
 
 const wanttogoController = require('../controllers/wanttogoController');
 const router = require('express').Router();

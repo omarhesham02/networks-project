@@ -4,8 +4,9 @@
     <style>
         body {
             background-image: url("background3.jpg");
-            background-repeat: no-repeat;
+            background-repeat: repeat;
             background-size: 100%;
+            background-color : rgb(29, 29, 29);
         }
 
         h1 {
@@ -13,6 +14,25 @@
             text-align: center;
             -webkit-text-stroke: 1px blue;
         }
+
+        .cardsT {
+            color: rgb(55, 22, 22);
+            /* transition: color 2s ease-in-out, background-color 0.15s ease-in-out; */
+        }
+        .cardsT:hover {
+            color: rgb(100, 135, 180);
+            /* transition: color 2s ease-in-out, background-color 0.15s ease-in-out;*/
+        }
+
+        .cardhover {
+            background-color : rgb(229, 229, 229);
+            transition: color 2s ease-in-out, background-color 0.5s ease-in-out;
+        }
+        .cardhover:hover {
+            background-color : rgb(237, 108, 108);
+            transition: color 2s ease-in-out, background-color 0.5s ease-in-out;
+        }
+
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,5 +58,31 @@
             </form>
         </div>
     </nav>
+    
+
+
+    <div class="container text-center">
+        
+        
+        <div class="row row-cols-auto"> <!--RESULTS columns-->
+            <% for (var i = 0; i < results.length; i++) { %>
+                
+                <div class="col">
+                    <a href=<%=results[i].name%> style="text-decoration: none;">
+                        <div class="card text-bg-light mb-3 cardhover" style="width: 18rem;">
+                            <img src="<%=results[i].name%>.png" class="card-img-top" alt="<%=results[i].name%>" height="300">
+                            <div class="card-body">
+                                <h5 class="card-title cardsT"><%=results[i].name%></h5>
+                                <p class="card-text cardsT">Explore this place...</p>
+                                <p class="card-text"><small class="text-muted">Last updated <%= 7*i +1 %> days ago</small></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <% } %>
+        </div>
+    </div>
+
+
 </body>
 </html>

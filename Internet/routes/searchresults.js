@@ -1,5 +1,3 @@
-// Require dotenv
-require('dotenv').config();
 
 const searchresultsController = require('../controllers/searchresultsController');
 const router = require('express').Router();

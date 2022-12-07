@@ -1,5 +1,3 @@
-// Require dotenv
-require('dotenv').config();
 
 const app = require('../app');
 const MongoClient = app.MongoClient;
