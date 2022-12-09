@@ -4,15 +4,11 @@ const db = new MongoClient(process.env.DB_URI).db("Users-DB");
 const users = db.collection("Users");
 
 async function registration(req, res, next) {
-    //var results = users.find({ name : {$regex: new RegExp(req.body.username ,'i')} });
-    //results = await results.toArray();
-    //results.unshift({name: req.body.username});
-    //if(results.length === 0){
     if (req.body.username == "") {
-        console.log('You must enter a username!');
+        res.render('registrationerror');
     }
     else if (req.body.password == "") {
-        console.log('You must enter a password!');
+        res.render('registrationerror');
     } else {
         MongoClient.connect(process.env.DB_URI, { useUnifiedTopology: true })
         .then(() => {
