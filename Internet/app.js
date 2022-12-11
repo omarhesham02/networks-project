@@ -34,7 +34,7 @@ const baliRouter = require('./routes/bali');
 const romeRouter = require('./routes/rome');
 const santoriniRouter = require('./routes/santorini');
 const registrationRouter = require('./routes/registration');
-const login2Router = require('./routes/login2');
+// const login2Router = require('./routes/login2');
 const registrationerrorRouter = require('./routes/registrationerror');
 //TODO-----
 // const homeRouter = require('./routes/home');
@@ -56,7 +56,7 @@ app.use('/bali', baliRouter);
 app.use('/rome', romeRouter);
 app.use('/santorini', santoriniRouter);
 app.use('/registration', registrationRouter);
-app.use('/login2', login2Router);
+// app.use('/login2', login2Router);
 app.use('/registrationerror', registrationerrorRouter);
 
 // Connect to MongoDB
