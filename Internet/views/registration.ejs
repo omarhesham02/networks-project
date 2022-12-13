@@ -34,13 +34,13 @@
         <h1>Registration</h1>
     </div>
     <div class="cont">
-        <form method='post' action='/registration'>
+        <form method='post' action='/registration' onsubmit="myFunction()">
             Username: <br>
-            <input type="text" id="user" name="username"> <br>
+            <input type="text" id="user" name="username" required> <br>
             Password: <br>
-            <input type="password" id="password" name="password"> <br> <br>
-            <input type="submit" id="simple_click" class="btn btn-secondary" value="Go to Login"> <br>
-            <button onclick="myFunction()">Register</button>
+            <input type="password" id="password" name="password" required><br> <br>
+            <input type="submit" id="simple_click" class="btn btn-secondary" value="Register"> <br>
+            <!-- <button onclick="myFunction()">Register</button> -->
 
             <script>
             function myFunction() {
@@ -57,3 +57,14 @@
 </body>
 
 </html>
+
+<!-- <form name="myform" action="#" onsubmit="return run_this_function()" method="post">
+  
+    Full Name:<br>
+    <input type="text" name="fullname" id="fullname"><br/>
+    
+    Phone number:<br>
+     <input type="text" name="phone" id="phone"><br/>
+    <input type="submit" value="Submit">
+    
+  </form> -->
