@@ -14,7 +14,7 @@ async function registration(req, res, next) {
         .catch(err => {
             console.log(err);
         });
-        res.render('login2')
+        res.render('login');
     }
     res.render('registration'); 
 }
