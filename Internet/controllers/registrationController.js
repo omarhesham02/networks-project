@@ -4,6 +4,7 @@ const db = new MongoClient(process.env.DB_URI).db("Users-DB");
 const users = db.collection("Users");
 
 async function registration(req, res, next) {
+
     if (req.body.username == "" || req.body.password == "") {
         res.render('registrationerror');
     } else {
@@ -14,9 +15,12 @@ async function registration(req, res, next) {
         .catch(err => {
             console.log(err);
         });
+        res.redirect('/');
         res.render('login');
     }
-    res.render('registration'); 
+
+    res.render('registration');
+
 }
 
 module.exports = { registration };
