@@ -33,10 +33,10 @@ const annapurnaRouter = require('./routes/annapurna');
 const baliRouter = require('./routes/bali');
 const romeRouter = require('./routes/rome');
 const santoriniRouter = require('./routes/santorini');
+const registrationRouter = require('./routes/registration');
+const registrationerrorRouter = require('./routes/registrationerror');
 //TODO-----
 // const homeRouter = require('./routes/home');
-// const registrationRouter = require('./routes/registration');
-
 //---------
 
 
@@ -54,11 +54,8 @@ app.use('/wanttogo', wanttogoRouter);
 app.use('/bali', baliRouter);
 app.use('/rome', romeRouter);
 app.use('/santorini', santoriniRouter);
-//TODO-----
-// app.use('/registration', registrationRouter);
-//---------
-
-
+app.use('/registration', registrationRouter);
+app.use('/registrationerror', registrationerrorRouter);
 
 // Connect to MongoDB
 MongoClient.connect(DB_URI, { useUnifiedTopology: true })
