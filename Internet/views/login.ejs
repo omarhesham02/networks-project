@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        // function myFunction1() {
+        //     // if (result == "" || password == "") {
+        //     //     alert("You must enter a username and password");
+        //     // } else {
+        //         alert("You have successfully registered!");
+        //     // }
+        // }
+        </script>
     <style>
         body {
             background-image: url("background1.jpg");
@@ -34,14 +43,23 @@
     <div class="cont">
         <form method="POST">
             Username:<br>
-            <input type="text" name="username">
+            <input type="text" name="username" required="required">
             <br>
             Password:<br>
-            <input type="password" name="password">
+            <input type="password" name="password" required="required">
             <br><br>
             <input type="submit" value="Login">
         </form>
         <br>
-        <a href="registration">I dont have an account</a>
+
+        <% if (locals.message)  {%>
+            <h6 style="color: rgb(236, 45, 45);"><%=message%></h6>
+        <%}%>
+        <br>
+        <a style="color:bisque" href="registration">I dont have an account</a>
+        
 </body>
+
+
+
 </html>

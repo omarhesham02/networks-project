@@ -1,9 +1,67 @@
 const app = require('../app');
 const MongoClient = app.MongoClient;
 const db = new MongoClient(process.env.DB_URI).db("Users-DB");
+const users = db.collection("Users");
 
-function login(req, res, next) {
-    res.render('home');
-}
+//function login(req, res, next) {
+  //  res.render('home');
+    
+//}
 
 module.exports = { login };
+
+
+//registration function to work on 
+
+async function login(req, res, next) {
+    var user= req.body.username;
+    var pass= req.body.password;
+    
+   // MongoClient.connect(process.env.DB_URI, { useUnifiedTopology: true })
+   //.then(() => {
+    //if (req.body.username == "" || req.body.password == "") {
+        //res.redirect('login');
+        // or condition for error message to appear using a variable we do in views 
+    
+    //try count method 
+    
+    //add required 
+    // MongoClient.connect(process.env.DB_URI, { useUnifiedTopology: true })
+    //     .then(() => {
+    //        if(db.collection('Users').count({username: req.body.username, password: req.body.password}))
+    //       res.redirect('home'); 
+    //        else {
+    //       res.redirect('login');
+        //   res.render('home')
+      //   }
+       // })
+       // .catch(err => {
+         //   console.log(err);
+        //});
+
+  //if(db.collection('Users').find({username: req.body.username, password: req.body.password})){
+  //if ((db.collection('Users').count({"username": req.body.username, "password": req.body.password}))!= 0){
+    //   res.render('home')
+  //}
+
+ var results= await db.collection('Users').find({"username": req.body.username, "password": req.body.password}).toArray();
+//console.log(results.length);
+//console.log(results);
+if ((results.length == 0)){
+// //res.redirect();
+      res.render('login', {message:'Your username or password is incorrect. Please Try again!'});
+      console.log('NOOOOOO');
+}
+
+ else {
+  //succesfull
+    //res.redirect('/');
+    res.render('home');
+ }
+
+//console.log('hwllo')
+    
+
+}
+
+
