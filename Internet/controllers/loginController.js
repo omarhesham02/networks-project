@@ -50,7 +50,7 @@ async function login(req, res, next) {
 if ((results.length == 0)){
 // //res.redirect();
       res.render('login', {message:'Your username or password is incorrect. Please Try again!'});
-      console.log('NOOOOOO');
+      //console.log('NOOOOOO');
 }
 
  else {
