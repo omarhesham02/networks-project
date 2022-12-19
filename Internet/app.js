@@ -8,6 +8,7 @@ const express = require('express');
 const { MongoClient } = require('mongodb');
 const path = require('path');
 const app = express();
+const session = require('express-session');
 module.exports = {MongoClient};
 
 // View Engine setup
@@ -17,6 +18,12 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+    secret: process.env.SESSION_SECRET || 'secret',
+    cookie: { maxAge: 60000 },
+    resave: false,
+    saveUninitialized: false
+    }));
 
 
 
