@@ -82,4 +82,3 @@ app.use('/', loginRouter);
 //console.log('HELLO',data);
 
 app.listen(PORT || 3000, () => console.log(`Server Online. Listening on port ${PORT} ...`));
-
