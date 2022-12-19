@@ -4,9 +4,10 @@ const db = new MongoClient(process.env.DB_URI).db("Users-DB");
 const users = db.collection("Users");
 
 async function registration(req, res, next) {
-
-    if (req.body.username == "" || req.body.password == "") {
-        res.render('registrationerror');
+    var results= await db.collection('Users').find({"username": req.body.username}).toArray();
+    if ((results.length != 0)){
+        res.render('registration', {message:'This username is already taken!'});
+              //console.log('NOOOOOO');
     } else {
         MongoClient.connect(process.env.DB_URI, { useUnifiedTopology: true })
         .then(() => {
