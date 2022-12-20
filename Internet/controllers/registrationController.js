@@ -7,7 +7,6 @@ async function registration(req, res, next) {
     var results= await db.collection('Users').find({"username": req.body.username}).toArray();
     if ((results.length != 0)){
         res.render('registration', {message:'This username is already taken!'});
-              //console.log('NOOOOOO');
     } else {
         MongoClient.connect(process.env.DB_URI, { useUnifiedTopology: true })
         .then(() => {
@@ -17,10 +16,10 @@ async function registration(req, res, next) {
             console.log(err);
         });
         res.redirect('/');
-        res.render('login');
+        res.render('login', {message:'You have successfully registered!'});
     }
 
-    res.render('registration');
+ //   res.render('registration');
 
 }
 
