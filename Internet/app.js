@@ -10,6 +10,7 @@ const path = require('path');
 const app = express();
 module.exports = {MongoClient};
 
+
 // View Engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

@@ -1,7 +1,9 @@
 const app = require('../app');
 const MongoClient = app.MongoClient;
 const db = new MongoClient(process.env.DB_URI).db("Users-DB");
-const users = db.collection("Users");
+var alert = require('alert');
+
+// const users = db.collection("Users");
 
 async function registration(req, res, next) {
     var results= await db.collection('Users').find({"username": req.body.username}).toArray();
@@ -15,8 +17,12 @@ async function registration(req, res, next) {
         .catch(err => {
             console.log(err);
         });
+        // popup.alert({
+        //     content: 'You have registered successfully!'
+        // });
+        alert('You have registered successfully!');
         res.redirect('/');
-        res.render('login', {message:'You have successfully registered!'});
+        res.render('login');
     }
 
  //   res.render('registration');

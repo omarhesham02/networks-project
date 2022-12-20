@@ -34,7 +34,8 @@
         <h1>Registration</h1>
     </div>
     <div class="cont">
-        <form method='post' action='/registration' onsubmit="myFunction()">
+        <!-- <form method='post' action='/registration' onsubmit="myFunction()"> -->
+        <form method='post' action='/registration'>
             Username: <br>
             <input type="text" id="user" name="username" required> <br>
             Password: <br>
@@ -42,15 +43,11 @@
             <input type="submit" id="simple_click" class="btn btn-secondary" value="Register"> <br>
             <!-- <button onclick="myFunction()">Register</button> -->
 
-            <!-- <script>
+            <script>
             function myFunction() {
-                // if (username == "" || password == "") {
-                //     alert("You must enter a username and password");
-                // } else {
-                    alert("You have successfully registered!");
-                // }
+                alert("You have successfully registered!");
             }
-            </script> -->
+            </script> 
 
         </form>
         <br>
