@@ -14,8 +14,8 @@ module.exports = { login };
 //registration function to work on 
 
 async function login(req, res, next) {
-    var user= req.body.username;
-    var pass= req.body.password;
+    var username = req.body.username;
+    var password = req.body.password;
     
    // MongoClient.connect(process.env.DB_URI, { useUnifiedTopology: true })
    //.then(() => {
@@ -44,7 +44,7 @@ async function login(req, res, next) {
     //   res.render('home')
   //}
 
- var results= await db.collection('Users').find({"username": req.body.username, "password": req.body.password}).toArray();
+ var results= await db.collection('Users').find({"username": username, "password": password}).toArray();
 //console.log(results.length);
 //console.log(results);
 if ((results.length == 0)){
@@ -54,8 +54,11 @@ if ((results.length == 0)){
 }
 
  else {
-  //succesfull
-    //res.redirect('/');
+    // Authenticate user
+    const user = { username: username, password: password};
+    req.session.authenticated = true;
+    req.session.username = username;
+    req.session.password = password;
     res.render('home');
  }
 

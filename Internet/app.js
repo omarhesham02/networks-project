@@ -9,6 +9,8 @@ const { MongoClient } = require('mongodb');
 const path = require('path');
 const app = express();
 const session = require('express-session');
+const store = new session.MemoryStore();
+const cookieParser = require('cookie-parser')();
 module.exports = {MongoClient};
 
 // View Engine setup
@@ -18,13 +20,14 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cookieParser);
 app.use(session({
     secret: process.env.SESSION_SECRET || 'secret',
     cookie: { maxAge: 60000 },
     resave: false,
-    saveUninitialized: false
-    }));
-
+    saveUninitialized: false,
+    store: store
+}));
 
 
 // Routers
