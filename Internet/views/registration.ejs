@@ -34,7 +34,8 @@
         <h1>Registration</h1>
     </div>
     <div class="cont">
-        <form method='post' action='/registration' onsubmit="myFunction()">
+        <!-- <form method='post' action='/registration' onsubmit="myFunction()"> -->
+        <form method='post' action='/registration'>
             Username: <br>
             <input type="text" id="user" name="username" required> <br>
             Password: <br>
@@ -44,15 +45,17 @@
 
             <script>
             function myFunction() {
-                // if (username == "" || password == "") {
-                //     alert("You must enter a username and password");
-                // } else {
-                    alert("You have successfully registered!");
-                // }
+                alert("You have successfully registered!");
             }
-            </script>
+            </script> 
 
         </form>
+        <br>
+
+        <% if (locals.message)  {%>
+            <h6 style="color: rgb(236, 45, 45);"><%=message%></h6>
+        <%}%>
+        <br>
     </div>
 </body>
 
