@@ -3,15 +3,7 @@ const MongoClient = app.MongoClient;
 const db = new MongoClient(process.env.DB_URI).db("Users-DB");
 const users = db.collection("Users");
 
-//function login(req, res, next) {
-  //  res.render('home');
-    
-//}
-
 module.exports = { login };
-
-
-//registration function to work on 
 
 async function login(req, res, next) {
     var username = req.body.username;
@@ -48,9 +40,7 @@ async function login(req, res, next) {
 //console.log(results.length);
 //console.log(results);
 if ((results.length == 0)){
-// //res.redirect();
       res.render('login', {message:'Your username or password is incorrect. Please Try again!'});
-      //console.log('NOOOOOO');
 }
 
  else {
@@ -61,10 +51,6 @@ if ((results.length == 0)){
     req.session.password = password;
     res.render('home');
  }
-
-//console.log('hwllo')
-    
-
 }
 
 

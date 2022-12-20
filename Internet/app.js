@@ -13,6 +13,7 @@ const store = new session.MemoryStore();
 const cookieParser = require('cookie-parser')();
 module.exports = {MongoClient};
 
+
 // View Engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -44,7 +45,6 @@ const baliRouter = require('./routes/bali');
 const romeRouter = require('./routes/rome');
 const santoriniRouter = require('./routes/santorini');
 const registrationRouter = require('./routes/registration');
-const registrationerrorRouter = require('./routes/registrationerror');
 //TODO-----
 // const homeRouter = require('./routes/home');
 //---------
@@ -65,8 +65,6 @@ app.use('/bali', baliRouter);
 app.use('/rome', romeRouter);
 app.use('/santorini', santoriniRouter);
 app.use('/registration', registrationRouter);
-app.use('/registrationerror', registrationerrorRouter);
-
 // Connect to MongoDB
 MongoClient.connect(DB_URI, { useUnifiedTopology: true })
     .then(() => {
