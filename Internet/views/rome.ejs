@@ -76,11 +76,23 @@
     <div class="container2">
         Rome today is one of the most important tourist destinations of the world, due to the incalculable immensity of its archaeological and art treasures, as well as for the charm of its unique traditions, the beauty of its panoramic views, and the majesty of its magnificent villas.
     </div>
-    <div class="wanttogo">
-        <button id="wanttogo" class="btn btn-secondary ml-3">Add to Want-to-Go List</button>
-    </div>
+    <form action="/wanttogo" method="post">
+        <input type="hidden" name="destination" value="Rome">
+        <div class="wanttogo">
+            <button id="wanttogo" class="btn btn-secondary ml-3">Add to Want-to-Go List</button>
+        </div>
+    </form>
     <div class="video">
         <iframe width="480" height="360" src="https://www.youtube.com/embed/-tM9a8v-GKk" title="The Rome city tour in Ultra 4K" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
+    <a href="/" style="padding-left: 20px;" ><button type="button" class="btn btn-warning position-absolute top-50 start-50 translate-middle">Go back to home page</button></a>
+    <a href="/cities" style="padding-left: 210px;" ><button type="button" class="btn btn-warning position-absolute top-50 start-50 translate-middle">Go back to Cities page</button></a>
+    
+    
+    <% if(locals.mes){ %>
+        <div class="alert alert-success" role="alert">
+            <%=mes%>
+        </div>
+    <% } %>
 </body>
 </html>

@@ -3,14 +3,22 @@
 <head>
     <style>
         body {
-            background-image: url("background3.jpg");
+            /*background-image: url("background3.jpg");*/
             background-repeat: no-repeat;
             background-size: 100%;
+            background-color:azure;
         }
         h1 {
             color: white;
             text-align: center;
             -webkit-text-stroke: 1px blue;
+        }
+        .cont {
+            position: relative;
+            left: 600px;
+            top: 50px;
+            color: white;
+            -webkit-text-stroke: 0.5px black;
         }
         .container1 {
             position: fixed;
@@ -20,42 +28,50 @@
         }
         .container2 {
             position: fixed;
-            left: 300px;
+            left: 200px;
             top: 150px;
             color: white;
-            width: 300px;
-            text-align: justify;
-            text-justify: inter-word;
         }
-        .video {
+        .container3 {
             position: fixed;
-            left: 700px;
+            left: 350px;
             top: 150px;
             color: white;
-            width: 300px;
-            text-align: justify;
-            text-justify: inter-word;
         }
         .wanttogo {
             position: fixed;
-            left: 30px;
-            top: 470px;
+            left: 80px;
+            top: 370px;
         }
-        #my {
-            zoom: 110%;
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
         }
     </style>
+    <script>
+        function submitted(){
+            window.alert("A report with current data and page was Submitted Successfully!");
+            var x = document.getElementById("myBut");
+            if (x.style.display === "none") {} 
+            else {
+                x.style.display = "none";
+            }
+        }
+
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bali Island</title>
+    <title>Error 404!</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
-        <a class="navbar-brand" style="color: rgb(191, 255, 161)">Bali Island</a>
+        <a class="navbar-brand" style="color: rgb(191, 255, 161)">Error</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -70,31 +86,20 @@
             </form>
         </div>
     </nav>
-    <div class="container1">
-        <img id="image" src="/bali.png" width="193" height="300">
-    </div>
-    <div class="container2">
-        Also known as the Land of the Gods, Bali appeals through its sheer natural beauty of looming volcanoes and lush terraced rice fields that exude peace and serenity. It is also famous for surfers' paradise.
-    </div>
-    <form action="/wanttogo" method="post">
-        <input type="hidden" name="destination" value="Bali">
-        <div class="wanttogo">
-            <button id="wanttogo" class="btn btn-secondary ml-3">Add to Want-to-Go List</button>
+        <div>
+            <h4 style="padding-top: 50px; padding-left: 30px;">The Page you are trying to send is unavailable. If you think this is an error Click Report</h4>
+            <div class="center">
+                <button id="myBut" type="button" class="btn btn-primary" onclick="submitted();">
+                    Report
+                </button>
+            </div>
+            <br>
+            <img src="https://img.freepik.com/premium-vector/404-error-design-with-broken-robot_23-2147730666.jpg?w=740" class="rounded mx-auto d-block" alt="Error" width="500" height="400">
+            <br>
+            <a href="/" class="center" ><button type="button" class="btn btn-danger position-absolute top-50 start-50 translate-middle">Go back to home page</button></a>
+
         </div>
-    </form>
-    <div class="video">
-        <iframe width="480" height="360" src="https://www.youtube.com/embed/LCqK7wZd2Pk" title="Bali, Indonesia (Travel Video)" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-    <a href="/" style="padding-left: 20px;" ><button type="button" class="btn btn-warning position-absolute top-50 start-50 translate-middle">Go back to home page</button></a>
-    <a href="/islands" style="padding-left: 210px;" ><button type="button" class="btn btn-warning position-absolute top-50 start-50 translate-middle">Go back to Islands page</button></a>
-    
-    
-    <% if(locals.mes){ %>
-        <div class="alert alert-success" role="alert">
-            <%=mes%>
-        </div>
-    <% } %>
 
 </body>
-
 </html>

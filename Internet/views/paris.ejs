@@ -77,9 +77,12 @@
     <div class="container2">
         It is known as the most romantic city in the world, and is home to some world famous sights that are constantly shown in travel magazines, movies, and other works of art. Paris, the capital of France, has a population of over two million people and is one of Europe's most-visited cities.
     </div>
-    <div class="wanttogo">
-        <button id="wanttogo" class="btn btn-secondary ml-3">Add to Want-to-Go List</button>
-    </div>
+    <form action="/wanttogo" method="post">
+        <input type="hidden" name="destination" value="Paris">
+        <div class="wanttogo">
+            <button id="wanttogo" class="btn btn-secondary ml-3">Add to Want-to-Go List</button>
+        </div>
+    </form>
     <div class="video">
     
         <iframe width="480" height="360" 
@@ -87,6 +90,15 @@
             autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
         </iframe>
     </div>
+    <a href="/" style="padding-left: 20px;" ><button type="button" class="btn btn-warning position-absolute top-50 start-50 translate-middle">Go back to home page</button></a>
+    <a href="/cities" style="padding-left: 210px;" ><button type="button" class="btn btn-warning position-absolute top-50 start-50 translate-middle">Go back to Cities page</button></a>
+    
+    
+    <% if(locals.mes){ %>
+        <div class="alert alert-success" role="alert">
+            <%=mes%>
+        </div>
+    <% } %>
 </body>
 
 </html>
