@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser);
 app.use(session({
     secret: process.env.SESSION_SECRET || 'secret',
-    cookie: { maxAge: 60000 },
+    cookie: { maxAge: 86400000 },   //24 hours as 60000 is only one minute:)
     resave: false,
     saveUninitialized: false,
     store: store
@@ -45,6 +45,7 @@ const baliRouter = require('./routes/bali');
 const romeRouter = require('./routes/rome');
 const santoriniRouter = require('./routes/santorini');
 const registrationRouter = require('./routes/registration');
+const errorRouter = require('./routes/error');
 //TODO-----
 // const homeRouter = require('./routes/home');
 //---------
@@ -65,6 +66,7 @@ app.use('/bali', baliRouter);
 app.use('/rome', romeRouter);
 app.use('/santorini', santoriniRouter);
 app.use('/registration', registrationRouter);
+app.use('/error', errorRouter);
 // Connect to MongoDB
 MongoClient.connect(DB_URI, { useUnifiedTopology: true })
     .then(() => {

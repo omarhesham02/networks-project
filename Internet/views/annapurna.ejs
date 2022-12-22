@@ -75,9 +75,12 @@
     <div class="container2">
         Annapurna Circuit has been voted as the best long-distance trek in the world, as it combined a wide variety of climate zones from tropics at 600m above sea level to the arctic at 5416m above sea level at the Thorong La pass and cultural variety from Hindu villages at the low foothills to the Tibetan culture of Manang.
     </div>
-    <div class="wanttogo">
-        <button id="wanttogo" class="btn btn-secondary ml-3">Add to Want-to-Go List</button>
-    </div>
+    <form action="/wanttogo" method="post">
+        <input type="hidden" name="destination" value="Annapurna">
+        <div class="wanttogo">
+            <button id="wanttogo" class="btn btn-secondary ml-3">Add to Want-to-Go List</button>
+        </div>
+    </form>
     <div class="video">
         <iframe width="480" height="360" 
         src="https://www.youtube.com/embed/ZQy8rDxEdRU" 
@@ -85,5 +88,13 @@
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen></iframe>
     </div>
+    <a href="/" style="padding-left: 20px;" ><button type="button" class="btn btn-warning position-absolute top-50 start-50 translate-middle">Go back to home page</button></a>
+    <a href="/hiking" style="padding-left: 210px;" ><button type="button" class="btn btn-warning position-absolute top-50 start-50 translate-middle">Go back to Hiking page</button></a>
+    
+    <% if(locals.mes){ %>
+        <div class="alert alert-success" role="alert">
+            <%=mes%>
+        </div>
+    <% } %>
 </body>
 </html>

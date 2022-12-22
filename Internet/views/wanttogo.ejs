@@ -38,5 +38,51 @@
             </form>
         </div>
     </nav>
+    <br>
+
+    <table class="table" style="color:white">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Open Info Page</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% if (locals.list) {%>
+                <% if (list.length == 0) {%>
+                    <th scope="row"></th>
+                    <td></td>
+                    <td></td>
+                    <td>No Places added to your Want-to-Go List.   To add a place, please visit or search a place and add it to your list.   Once You add destinations they will appear here.</td>
+                <% } %>
+
+                <% for (var i = 0; i < list.length; i++) { %>
+                    <tr>
+                        <th scope="row"><%=i+1%></th>
+                        <td>
+                            <img src="<%=list[i].dest %>.png" class="rounded" alt="bali" width="100" height="100">
+                        </td>
+                        <td style="font-size: 25px;"><%=list[i].dest %></td>
+                        <td>  
+                            <a href="/<%=list[i].dest %>">
+                                <button type="button" class="btn btn-success">Visit Page</button>
+                            </a>  
+                        </td>
+                    </tr>
+                
+                <% } %>
+            <% } else { %>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td>No Places added to your Want-to-Go List.   To add a place, please visit or search a place and add it to your list.   Once You add destinations they will appear here.</td>
+                
+            <% } %>
+            </tbody>
+        </table>
+
+
 </body>
 </html>
