@@ -7,7 +7,8 @@ const MongoClient = app.MongoClient;
 const db = new MongoClient(process.env.DB_URI).db("Users-DB");
 
 router.get('/', authentication.isAuthenticated, (req, res) => {
-    res.render('searchresults');
+    //cannot access search by GET request
+    res.render('home');
 });
 
 router.post('/', searchresultsController.searchresults);
