@@ -17,16 +17,10 @@ async function registration(req, res, next) {
         .catch(err => {
             console.log(err);
         });
-        // popup.alert({
-        //     content: 'You have registered successfully!'
-        // });
         alert('You have registered successfully!');
         res.redirect('/');
         res.render('login');
     }
-
- //   res.render('registration');
-
 }
 
 module.exports = { registration };
