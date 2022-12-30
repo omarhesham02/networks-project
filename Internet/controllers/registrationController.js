@@ -3,8 +3,6 @@ const MongoClient = app.MongoClient;
 const db = new MongoClient(process.env.DB_URI).db("Users-DB");
 var alert = require('alert');
 
-// const users = db.collection("Users");
-
 async function registration(req, res, next) {
     var results= await db.collection('Users').find({"username": req.body.username}).toArray();
     if ((results.length != 0)){

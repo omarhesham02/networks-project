@@ -22,8 +22,7 @@ async function wanttogo(req, res, next) {
             });
             res.render(req.body.destination, {mes:'Added to Want-to-Go List Succesfully'});
         }else{
-            res.render(req.body.destination, {mes:'Already added to Want-to-Go List'});
-            
+            res.render(req.body.destination, {mes:'Already added to Want-to-Go List'});     
         }
     }
 }
