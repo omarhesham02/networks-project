@@ -10,10 +10,7 @@ const wish = db.collection('Wishlist');
 router.get('/', authentication.isAuthenticated, async (req, res) => {
     var results = wish.find({ username : req.session.username });
     results = await results.toArray();
-    console.log(results);
-
     res.render('wanttogo', {list : results});
-    //console.log('username is '+ req.session.username);
 });
 
 router.post('/', wanttogoController.wanttogo);

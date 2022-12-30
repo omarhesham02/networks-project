@@ -6,7 +6,7 @@ const MongoClient = app.MongoClient;
 const db = new MongoClient(process.env.DB_URI).db("Users-DB");
 
 
-router.get('/', authentication.isAuthenticated, (req, res) => {
+router.get('/',  (req, res) => {
     res.render('registration');
 });
 
